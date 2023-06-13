@@ -1,0 +1,10 @@
+-- Calculate descriptive statistics for a column
+SELECT
+    COUNT(*) AS count,
+    MIN(column_name) AS min_value,
+    MAX(column_name) AS max_value,
+    AVG(column_name) AS average,
+    SUM(column_name) AS sum,
+    STDDEV(column_name) AS standard_deviation
+FROM
+    table_name;
