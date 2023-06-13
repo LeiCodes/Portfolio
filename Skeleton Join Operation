@@ -1,0 +1,6 @@
+-- Selecting columns from two tables using a JOIN operation
+SELECT t1.column1, t2.column2, ... -- Specify the columns you want to select from the joined tables
+FROM table1 AS t1 -- Alias for the first table
+JOIN table2 AS t2 ON t1.column_name = t2.column_name -- Join condition based on a common column
+WHERE condition -- Optional: Add additional filtering criteria
+GROUP BY t1.column1, t2.column2; -- Optional: Group the result based on specified columns
