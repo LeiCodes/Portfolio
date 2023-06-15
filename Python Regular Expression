@@ -1,0 +1,24 @@
+#Regular Expression Going Through to Categorize
+
+import pandas as pd
+import re
+
+#Upload Excel file
+excel_data = r"C:\Users\Edward Lei\OneDrive\Documents\Sample Slots for Regular Expression.xlsx" #Replace with Excel Path Location
+df = pd.read_excel(excel_data)
+
+# Regular Expression Pattern (Replace 3 with desire pattern)
+pattern = r'3' 
+
+#Iterate through Column for Pattern and Apply Regular Expression
+for index,row in df.iterrows():
+    text = row['Slot']
+    match = re.search(pattern,text)
+
+    #Replace this with what you need
+    if match:
+        df.at[index,'Offline'] = 'Offline'
+    else:
+        df.at[index,'Offline'] = 'Online'
+
+print(df)
