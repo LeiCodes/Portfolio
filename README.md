@@ -4,7 +4,7 @@ This Portfolio Contains Sample Codes of SQL and Python demostrating skills and u
 
 #SQL
 
-1. Describe Statsitics - Returns descriptive statistics of a desire column
+1. Describe Statistics - Returns descriptive statistics of a desire column
 2. Join Operation - Returns a tabled joined together of information from 2 tables
 
 SQL Skeleton Scripts that can be used in applications involving SQL and data analysis
@@ -20,4 +20,4 @@ SQL Skeleton Scripts that can be used in applications involving SQL and data ana
 
 #Python
 
-1. Time Series with Descriptive Stastics and Simulation: Returns a times series chart with a table descriptive statistics and option to simulate future. 
+1. Time Series with Descriptive Statistics and Simulation: Returns a times series chart with a table descriptive Statistics and option to simulate future. 
