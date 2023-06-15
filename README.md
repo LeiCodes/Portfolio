@@ -20,4 +20,4 @@ SQL Skeleton Scripts that can be used in applications involving SQL and data ana
 
 #Python
 
-1. Time Series with Descriptive Statistics and Simulation: Returns a times series chart with a table descriptive Statistics and option to simulate future. 
+1. Time Series with Descriptive Statistics and Simulation: Returns a times series chart with a table descriptive Statistics and option to simulate future from an excel file
