@@ -1,1 +1,60 @@
+#Plot Time Series with Descriptive Statistics and Simulation Data
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+
+#Upload Excel Data
+excel_data = r"data.xls" #Replace with Excel Path Location
+df = pd.read_csv(excel_data) #change csv to excel if xls file
+df['date'] = pd.to_datetime(df['date']) #Replace date with correct header for a date.
+
+#Calculate Descirptive Statistics
+statistics = df['column_name'].describe() #Replace column_name with desired column header
+
+#Calculate Trendline
+x = np.arange(len(df['date']))
+coefficients = np.polyfit(x,df['column_name'],deg = 1) #Replace column_name with desired column header
+trendline = np.polyval(coefficients,x)
+
+#Detect and Remove Outliers
+z_scores = stats.zscore(df['column_name'])
+threshold = 3
+filtered_data = df['column_name'][np.abs(z_scores)<threshold]
+mean = filtered_data.mean()
+std = filtered_data.std()
+
+
+#Simulate Data assumption of normal distribution
+start_date = '2023-01-01'
+end_date = '2023-12-31'
+dates = pd.date_range(start_date, end_date, freq = 'D')
+n = len(dates)
+simulated_data = np.random.normal(mean, std, size = n)
+
+#Fit Data to Distribution if not normal distribution
+#params = stats.norm.fit(df['column_name']) 
+#simulated_data = stats.norm.rvs(*params, size = len(dates))
+simulated_data = np.maximum(simulated_data, 0)  # Set negative values to 0
+
+# Annotate the graph with descriptive statistics
+plt.text(0.05, 0.95, statistics.to_string(), transform=plt.gca().transAxes, fontsize=10,
+         verticalalignment='top', bbox=dict(boxstyle='round', facecolor='white', alpha=0.5)) # Change .05 and .95 to reposition the table 
+
+# Plot the original data and trend line
+plt.plot(df['date'], df['column_name'], label = 'Data')
+plt.plot(df['date'],trendline, color ='red', linestyle='--', label = 'Trend Line')
+
+#Plot Simulated Data
+plt.plot(dates,simulated_data,label ='Simulated Data')
+
+#Edit Elements of Graph
+plt.xlabel('Date') #Replace Date with desired name
+plt.ylabel('column_name') #Replace Y Label with desired name
+plt.title('Time Series Data') #Replace Time Series Data with desire title
+plt.grid(True)
+plt.legend()
+
+#Display Plot
+plt.show()
