@@ -8,3 +8,4 @@ SELECT
     STDDEV(column_name) AS standard_deviation
 FROM
     table_name;
+   
