@@ -21,3 +21,4 @@ SQL Skeleton Scripts that can be used in applications involving SQL and data ana
 #Python
 
 1. Time Series with Descriptive Statistics and Simulation: Returns a times series chart with a table descriptive Statistics and option to simulate future from an excel file
+2. Regular Expression: Sample Code used in identifying Offline and Online Slots in a warehouse to categortize
